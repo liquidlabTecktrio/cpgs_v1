@@ -7,7 +7,7 @@ from django.shortcuts import render
 
 def video_stream():
     # Open the camera
-    camera = cv2.VideoCapture()  # Change to the appropriate camera index if needed
+    camera = cv2.VideoCapture(2)  # Change to the appropriate camera index if needed
     while True:
         # Read frame from the camera
         success, frame = camera.read()

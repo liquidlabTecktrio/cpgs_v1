@@ -60,8 +60,7 @@ class ParkoV3:
         self.TriggerVehicleAt = 50
         self.scanTimeInSec = 5
         # Create a object for the camera
-        # self.camera = cv2.VideoCapture(self.camera_port)
-        self.camera = cv2.VideoCapture()
+        self.camera = cv2.VideoCapture(self.camera_port)
 
         __, self.frame = self.camera.read()
         # Config the debug window size
@@ -441,7 +440,7 @@ class ParkoV3:
 if __name__ == '__main__':
     print('starting....')
     try:
-        parkov3 = ParkoV3(camera_port=0)
+        parkov3 = ParkoV3(camera_port=1)
         parkov3.start()
     except Exception as error:
         # parkov3.network_handler(f"Need Troubleshooting for the device {socket.gethostbyname(socket.gethostname())}")
