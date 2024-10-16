@@ -60,7 +60,8 @@ class ParkoV3:
         self.TriggerVehicleAt = 50
         self.scanTimeInSec = 5
         # Create a object for the camera
-        self.camera = cv2.VideoCapture(self.camera_port)
+        # self.camera = cv2.VideoCapture(self.camera_port)
+        self.camera = cv2.VideoCapture()
 
         __, self.frame = self.camera.read()
         # Config the debug window size
