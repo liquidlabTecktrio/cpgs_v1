@@ -6,7 +6,7 @@ video_devices = [f'/dev/video{i}' for i in range(32)]  # Adjust the range as nec
 
 def find_working_camera():
     # for device in video_devices:
-        camera = cv2.VideoCapture('/dev/video1')
+        camera = cv2.VideoCapture('/dev/video2')
 
         camera.set(cv2.CAP_PROP_FRAME_WIDTH, 640)  # Set to a supported width
         camera.set(cv2.CAP_PROP_FRAME_HEIGHT, 480)  # Set to a supported height
