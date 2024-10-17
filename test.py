@@ -1,23 +1,26 @@
 import cv2
+import os
 
-# Attempt to capture from the camera
-camera = cv2.VideoCapture('/dev/video1')
-camera.set(cv2.CAP_PROP_FRAME_WIDTH, 640)
-camera.set(cv2.CAP_PROP_FRAME_HEIGHT, 480)
+# Get a list of all video devices
+video_devices = [f'/dev/video{i}' for i in range(10)]  # Adjust the range as necessary
 
-if not camera.isOpened():
-    print("Could not open video device")
-else:
-    while True:
-        ret, frame = camera.read()
-        if ret:
-            cv2.imshow('Frame', frame)
-            if cv2.waitKey(1) & 0xFF == ord('q'):
-                break
+def find_working_camera():
+    for device in video_devices:
+        camera = cv2.VideoCapture(device)
+        if camera.isOpened():
+            print(f'Found working camera at {device}')
+            # Optional: Capture a frame to confirm it's working
+            ret, frame = camera.read()
+            if ret:
+                print(f'Successfully captured a frame from {device}')
+                # Display the frame or process it as needed
+                cv2.imshow(f'Camera Feed from {device}', frame)
+                cv2.waitKey(0)  # Wait for a key press to close the window
+            else:
+                print(f'Camera at {device} could not capture a frame.')
+            camera.release()
         else:
-            print("Frame not captured")
-            break
+            print(f'Camera at {device} not found.')
 
-camera.release()
+find_working_camera()
 cv2.destroyAllWindows()
- 
