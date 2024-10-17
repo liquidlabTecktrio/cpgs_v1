@@ -17,19 +17,19 @@ out = cv2.VideoWriter('output.avi', fourcc, 20.0, (640, 480))
 # Capture video for 5 seconds
 start_time = time.time()
 while int(time.time() - start_time) < 5:
-    ret, frame = cap.read()
-    if ret:
-        # Write the frame to the video file
-        out.write(frame)
+    frame = cap.capture_array()
 
-        # Display the frame (optional)
-        cv2.imshow('frame', frame)
+   
+    # Write the frame to the video file
+    out.write(frame)
 
-        # Press 'q' to exit early
-        if cv2.waitKey(1) & 0xFF == ord('q'):
-            break
-    else:
+    # Display the frame (optional)
+    # cv2.imshow('frame', frame)
+
+    # Press 'q' to exit early
+    if cv2.waitKey(1) & 0xFF == ord('q'):
         break
+
 
 # Release the camera and close the window
 cap.release()
