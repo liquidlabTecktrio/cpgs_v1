@@ -1,7 +1,7 @@
 import cv2
 
 # Attempt to capture from the camera
-camera = cv2.VideoCapture('/dev/video0')
+camera = cv2.VideoCapture('/dev/video1')
 camera.set(cv2.CAP_PROP_FRAME_WIDTH, 640)
 camera.set(cv2.CAP_PROP_FRAME_HEIGHT, 480)
 
