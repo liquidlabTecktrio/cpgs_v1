@@ -17,8 +17,8 @@ def find_working_camera():
             if ret:
                 print(f'Successfully captured a frame from {device}')
                 # Display the frame or process it as needed
-                cv2.imshow(f'Camera Feed from {device}', frame)
-                cv2.waitKey(0)  # Wait for a key press to close the window
+                # cv2.imshow(f'Camera Feed from {device}', frame)
+                # cv2.waitKey(0)  # Wait for a key press to close the window
             else:
                 print(f'Camera at {device} could not capture a frame.')
             camera.release()
