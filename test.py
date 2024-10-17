@@ -25,5 +25,5 @@ def find_working_camera():
         else:
             print(f'Camera at {device} not found.')
 
-find_working_camera()
+# find_working_camera()
 # cv2.destroyAllWindows()
