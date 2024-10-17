@@ -1,17 +1,13 @@
 import cv2
+from picamera2 import Picamera2
 
-cap = cv2.VideoCapture(0)  # Try changing the index if needed
+picam2 = Picamera2()
+picam2.start()
+while True:
+    image = picam2.capture_array()
+    cv2.imshow("Frame", image)
+    if(cv2.waitKey(1) == ord("q")):
+        cv2.imwrite("test_frame.png", image)
+        break
 
-if not cap.isOpened():
-    print("Error: Camera not accessible")
-else:
-    ret, frame = cap.read()
-    if ret:
-        # cv2.imshow("Captured Frame", frame)
-        # cv2.waitKey(0)
-        print('got the frame')
-    else:
-        print("Error: Frame not captured")
-
-cap.release()
-# cv2.destroyAllWindows()
+cv2.destroyAllWindows()
