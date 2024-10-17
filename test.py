@@ -5,8 +5,8 @@ import os
 video_devices = [f'/dev/video{i}' for i in range(32)]  # Adjust the range as necessary
 
 def find_working_camera():
-    for device in video_devices:
-        camera = cv2.VideoCapture(device)
+    # for device in video_devices:
+        camera = cv2.VideoCapture('/dev/video0')
 
         camera.set(cv2.CAP_PROP_FRAME_WIDTH, 640)  # Set to a supported width
         camera.set(cv2.CAP_PROP_FRAME_HEIGHT, 480)  # Set to a supported height
@@ -25,5 +25,5 @@ def find_working_camera():
         else:
             print(f'Camera at {device} not found.')
 
-# find_working_camera()
+find_working_camera()
 # cv2.destroyAllWindows()
