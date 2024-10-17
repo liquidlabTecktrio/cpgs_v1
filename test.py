@@ -32,6 +32,6 @@ while int(time.time() - start_time) < 5:
 
 
 # Release the camera and close the window
-cap.release()
+# cap.release()
 out.release()
-cv2.destroyAllWindows()
+# cv2.destroyAllWindows()
