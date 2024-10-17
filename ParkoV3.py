@@ -11,6 +11,11 @@ import socket
 points = []
 corner = []
 
+from picamera2 import Picamera2
+
+picam2 = Picamera2()
+picam2.start()
+
 class ParkoV3:
     def __init__(self, camera_port):
         '''Initialize all the variables or data on boot'''
@@ -62,7 +67,7 @@ class ParkoV3:
         # Create a object for the camera
         self.camera = cv2.VideoCapture(self.camera_port)
 
-        __, self.frame = self.camera.read()
+        self.frame = picam2.capture_array()
         # Config the debug window size
         self.camera.set(3, 640)
         self.camera.set(4, 420)
