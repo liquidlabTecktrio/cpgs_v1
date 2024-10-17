@@ -1,18 +1,20 @@
 import cv2
-camera = cv2.VideoCapture()
 
+# Attempt to capture from the camera
+camera = cv2.VideoCapture('/dev/video0')
 
-def load_next_frame():
-    '''
-    Frame will be assigned with a latest camera frame or image
-    '''
-    if not camera.isOpened():
-        print('Camera not found')
-        return False
-    else:
-        __, frame = camera.read()
-        return True
-    
+if not camera.isOpened():
+    print("Could not open video device")
+else:
+    while True:
+        ret, frame = camera.read()
+        if ret:
+            cv2.imshow('Frame', frame)
+            if cv2.waitKey(1) & 0xFF == ord('q'):
+                break
+        else:
+            print("Frame not captured")
+            break
 
-while True:
-    load_next_frame()
+camera.release()
+cv2.destroyAllWindows()
