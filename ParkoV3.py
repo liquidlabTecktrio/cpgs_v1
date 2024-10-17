@@ -440,7 +440,7 @@ class ParkoV3:
 if __name__ == '__main__':
     print('starting....')
     try:
-        parkov3 = ParkoV3(camera_port="/dev/video10")
+        parkov3 = ParkoV3(camera_port="/dev/video11")
         parkov3.start()
     except Exception as error:
         # parkov3.network_handler(f"Need Troubleshooting for the device {socket.gethostbyname(socket.gethostname())}")
