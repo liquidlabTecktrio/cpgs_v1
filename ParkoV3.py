@@ -64,8 +64,8 @@ class ParkoV3:
 
         __, self.frame = self.camera.read()
         # Config the debug window size
-        self.camera.set(3, 1640)
-        self.camera.set(4, 1232)
+        self.camera.set(3, 640)
+        self.camera.set(4, 420)
         # Store all the 4 coordinates of each slot on calibration time
         self.coordinate_data = []
         # Calibration configuration
@@ -440,7 +440,7 @@ class ParkoV3:
 if __name__ == '__main__':
     print('starting....')
     try:
-        parkov3 = ParkoV3(camera_port="/dev/video22")
+        parkov3 = ParkoV3(camera_port="/dev/video0")
         parkov3.start()
     except Exception as error:
         # parkov3.network_handler(f"Need Troubleshooting for the device {socket.gethostbyname(socket.gethostname())}")
