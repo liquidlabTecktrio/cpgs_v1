@@ -18,10 +18,3 @@ reg = r'[A-Z]{2}\s?[0-9]{2}[A-Z]{1}\s?[0-9]{4}'
 
 if cv2.waitKey(10) & 0xFF == ord('q'):
     pass
-reader = easyocr.Reader(model_storage_directory = '/Users/apple/Desktop/ParkoV1/ParkoV2/LanguageModels', lang_list = ['en'])
-result = reader.readtext(blured)
-# print(result)
-for i in result:
-    # print(i[1])
-    if re.match(reg, i[1]):
-        print(i[1])
