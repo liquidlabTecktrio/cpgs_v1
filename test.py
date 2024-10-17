@@ -2,6 +2,8 @@ import cv2
 
 # Attempt to capture from the camera
 camera = cv2.VideoCapture('/dev/video0')
+camera.set(cv2.CAP_PROP_FRAME_WIDTH, 640)
+camera.set(cv2.CAP_PROP_FRAME_HEIGHT, 480)
 
 if not camera.isOpened():
     print("Could not open video device")
@@ -18,3 +20,4 @@ else:
 
 camera.release()
 cv2.destroyAllWindows()
+ 
