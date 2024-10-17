@@ -2,7 +2,7 @@ import cv2
 import os
 
 # Get a list of all video devices
-video_devices = [f'/dev/video{i}' for i in range(20)]  # Adjust the range as necessary
+video_devices = [f'/dev/video{i}' for i in range(32)]  # Adjust the range as necessary
 
 def find_working_camera():
     for device in video_devices:
