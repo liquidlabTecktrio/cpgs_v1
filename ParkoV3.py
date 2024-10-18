@@ -149,8 +149,8 @@ class ParkoV3:
             # Find the bounding box of the polygon
             x, y, w, h = cv2.boundingRect(pts)
             cropped_image = thresholded_image[y:y+h, x:x+w]
-            if self.Debug:
-                cv2.imshow(f'{slot_coordinates}',cropped_image)
+            # if self.Debug:
+            #     cv2.imshow(f'{slot_coordinates}',cropped_image)
             zero_count = cv2.countNonZero(cropped_image)
             return zero_count
     
@@ -211,8 +211,8 @@ class ParkoV3:
         # if timer == self.scanTimeInSec:
         #         break
         # Display the image with rectangles drawn on matching contours
-        if self.Debug:
-            cv2.imshow('Dectecting Parking spaces', self.frame)
+        # if self.Debug:
+        #     cv2.imshow('Dectecting Parking spaces', self.frame)
         if cv2.waitKey(1) & 0xFF == ord('q'):
             self.camera.release()
         return True , self.VaccantSlots, self.OccupiedSlots
@@ -314,8 +314,8 @@ class ParkoV3:
                     print('Updated New coordinates to DB')
                     break
             # Display the image with rectangles drawn on matching contours
-            if self.Debug:
-                cv2.imshow('Frame in Gray And Blured', frameInGrayAndBlur)
+            # if self.Debug:
+            #     cv2.imshow('Frame in Gray And Blured', frameInGrayAndBlur)
                 # cv2.imshow('Frame', self.frame)
                 # cv2.imshow('Thresholded Frame', ThreshHoldedFrame)
                 # cv2.imshow('Dilated Frame', imgdilate)
