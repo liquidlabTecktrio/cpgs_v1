@@ -24,8 +24,8 @@ class ParkoV3:
         # 1 - auto_calibrate mode
         # 2 - manual_calibrate mode
         # default mode
-        picam2 = Picamera2()
-        picam2.start()
+        self.picam2 = Picamera2()
+        self.picam2.start()
         self.mode = 0
         # Change this to False on production to reduce processing power
         self.Debug = False
@@ -69,7 +69,7 @@ class ParkoV3:
         # Create a object for the camera
         self.camera = cv2.VideoCapture(self.camera_port)
 
-        self.frame = picam2.capture_array()
+        self.frame = self.picam2.capture_array()
         # Config the debug window size
         self.camera.set(3, 640)
         self.camera.set(4, 420)
@@ -100,7 +100,7 @@ class ParkoV3:
         #     print('Camera not found')x
         #     return False
         # else:
-        self.frame = picam2.capture_array()
+        self.frame = self.picam2.capture_array()
         return True
     
     def current_timestamp(self):
