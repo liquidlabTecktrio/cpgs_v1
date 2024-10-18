@@ -96,13 +96,13 @@ class ParkoV3:
         '''
         Frame will be assigned with a latest camera frame or image
         '''
-        if not self.camera.isOpened():
-            print('Camera not found')
-            return False
-        else:
-            __, self.frame = self.camera.read()
-            return True
-        
+        # if not self.camera.isOpened():
+        #     print('Camera not found')x
+        #     return False
+        # else:
+        self.frame = picam2.capture_array()
+        return True
+    
     def current_timestamp(self):
         '''
         Returns the current timestamp
