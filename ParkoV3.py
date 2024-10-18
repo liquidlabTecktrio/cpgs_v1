@@ -237,7 +237,7 @@ class ParkoV3:
 
         # Display the image
         while True:
-            cv2.imshow('frame', self.frame)
+            # cv2.imshow('frame', self.frame)
             self.load_next_frame()
             if len(points) > 1:
                     for index in range (0,len(points)-1):
@@ -315,10 +315,10 @@ class ParkoV3:
                     break
             # Display the image with rectangles drawn on matching contours
             if self.Debug:
-                # cv2.imshow('Frame in Gray And Blured', frameInGrayAndBlur)
-                cv2.imshow('Frame', self.frame)
+                cv2.imshow('Frame in Gray And Blured', frameInGrayAndBlur)
+                # cv2.imshow('Frame', self.frame)
                 # cv2.imshow('Thresholded Frame', ThreshHoldedFrame)
-                cv2.imshow('Dilated Frame', imgdilate)
+                # cv2.imshow('Dilated Frame', imgdilate)
 
             if cv2.waitKey(10) & 0xFF == ord('q'):
                 self.camera.release()          
