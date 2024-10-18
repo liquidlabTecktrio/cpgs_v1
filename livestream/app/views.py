@@ -6,11 +6,13 @@ from django.http import StreamingHttpResponse
 from django.shortcuts import render
 from picamera2 import Picamera2
 
-picam2 = Picamera2()
-picam2.start()
+
+
 def video_stream():
+    picam2 = Picamera2()
+    picam2.start()
     # Open the camera
-    camera = cv2.VideoCapture('/dev/video1')  # Change to the appropriate camera index if needed
+    # camera = cv2.VideoCapture('/dev/video1')  # Change to the appropriate camera index if needed
     while True:
         # Read frame from the camera
         frame = picam2.capture_array()
