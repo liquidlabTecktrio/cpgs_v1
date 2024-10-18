@@ -8,13 +8,13 @@ import pickle
 import easyocr
 import threading
 import socket
+from picamera2 import Picamera2
+
+
 points = []
 corner = []
 
-from picamera2 import Picamera2
 
-picam2 = Picamera2()
-picam2.start()
 
 class ParkoV3:
     def __init__(self, camera_port):
@@ -24,6 +24,8 @@ class ParkoV3:
         # 1 - auto_calibrate mode
         # 2 - manual_calibrate mode
         # default mode
+        picam2 = Picamera2()
+        picam2.start()
         self.mode = 0
         # Change this to False on production to reduce processing power
         self.Debug = False
