@@ -6,7 +6,7 @@ cap.start()
 
 
 frame = cap.capture_array()
-with open('image.jpg','rw') as file:
+with open('image.jpg','w') as file:
     file.write(frame)
 
    
