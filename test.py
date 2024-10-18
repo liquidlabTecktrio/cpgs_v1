@@ -6,7 +6,7 @@ cap.start()
 
 
 frame = cap.capture_array()
-with open('image.jpg','w') as file:
-    file.write(frame)
+# with open('image.jpg','w') as file:
+cv2.imwrite('image.jpg',frame)
 
    
