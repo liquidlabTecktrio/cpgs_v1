@@ -67,12 +67,12 @@ class ParkoV3:
         self.TriggerVehicleAt = 50
         self.scanTimeInSec = 5
         # Create a object for the camera
-        self.camera = cv2.VideoCapture(self.camera_port)
+        # self.camera = cv2.VideoCapture(self.camera_port)
 
         self.frame = self.picam2.capture_array()
         # Config the debug window size
-        self.camera.set(3, 640)
-        self.camera.set(4, 420)
+        # self.camera.set(3, 640)
+        # self.camera.set(4, 420)
         # Store all the 4 coordinates of each slot on calibration time
         self.coordinate_data = []
         # Calibration configuration
@@ -213,8 +213,8 @@ class ParkoV3:
         # Display the image with rectangles drawn on matching contours
         # if self.Debug:
         #     cv2.imshow('Dectecting Parking spaces', self.frame)
-        if cv2.waitKey(1) & 0xFF == ord('q'):
-            self.camera.release()
+        # if cv2.waitKey(1) & 0xFF == ord('q'):
+        #     self.camera.release()
         return True , self.VaccantSlots, self.OccupiedSlots
     
     def manual_calibrate(self):
@@ -321,7 +321,7 @@ class ParkoV3:
                 # cv2.imshow('Dilated Frame', imgdilate)
 
             if cv2.waitKey(10) & 0xFF == ord('q'):
-                self.camera.release()          
+                # self.camera.release()          
                 with open('coordinates','wb') as coordinates:
                     pickle.dump(self.coordinate_data, coordinates)
                     print('Updated New coordinates to DB')
@@ -447,7 +447,7 @@ class ParkoV3:
 if __name__ == '__main__':
     print('starting....')
     try:
-        parkov3 = ParkoV3(camera_port="/dev/video0")
+        parkov3 = ParkoV3()
         parkov3.start()
     except Exception as error:
         # parkov3.network_handler(f"Need Troubleshooting for the device {socket.gethostbyname(socket.gethostname())}")
