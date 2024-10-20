@@ -12,7 +12,7 @@ export default function App() {
         <Routes>
           {/* Unauthenticated Routes */}
           <Route path="/login" element={<Loginpage/>} />
-          <Route path="/dashboard" element={<Dashboard/>} />
+          <Route path="/" element={<Dashboard/>} />
         </Routes>
      
     </Router>
