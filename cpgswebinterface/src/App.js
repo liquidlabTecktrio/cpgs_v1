@@ -6,7 +6,6 @@ import Loginpage from "./Pages/LoginPage/Loginpage";
 export default function App() {
   return (
     <>
-      {/* <Loginpage/> */}
       <Router>
   
         <Routes>
