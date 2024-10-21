@@ -4,7 +4,7 @@ import Inputtextbox from '../../Components/inputtextbox/Inputtextbox'
 import HeadingwithDescription from '../../Components/HeadingwithDescription/HeadingwithDescription'
 import Submitbutton from '../../Components/submitbutton/Submitbutton'
 import { useNavigate } from 'react-router-dom'
-import { LOGIN_API } from '../../API_Requests/LOGIN_API'
+import { LOGIN_API } from '../../API_Requests'
 
 export default function Loginpage() {
   const [error, setError] = useState('')
