@@ -21,7 +21,7 @@ export const GET_AUTO_CALIBRATE_FRAME_REQUEST = ()=>{
       socket.send("get_frame")
       socket.onmessage = function (data) {
         // const data = JSON.parse(event.data);
-          console.log('Message from server:', "done");
+          console.log('Message from server:', data);
     };
     }).catch((error)=>{
 
