@@ -50,7 +50,7 @@ class AutoCoordinateFinder(AsyncWebsocketConsumer):
         if text_data == 'get_frame':
             
             while True:
-                await asyncio.sleep(.2)
+                # await asyncio.sleep(.2)
                 await self.send(video_stream())
             
 
