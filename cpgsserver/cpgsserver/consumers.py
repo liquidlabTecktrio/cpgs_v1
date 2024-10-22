@@ -15,9 +15,8 @@ from picamera2 import Picamera2
 
 
 
-def video_stream():
-    picam2 = Picamera2()
-    picam2.start()
+def video_stream(picam2):
+   
     # Open the camera
     # camera = cv2.VideoCapture('/dev/video1')  # Change to the appropriate camera index if needed
 
@@ -29,7 +28,7 @@ def video_stream():
     ret, buffer = cv2.imencode('.jpg', frame)
     frame_bytes = buffer.tobytes()
     encoded_frame = base64.b64encode(frame_bytes).decode('utf-8')
-    picam2.stop()
+    
 
         # Yield the base64 string
     return  f"data:image/jpeg;base64,{encoded_frame}"
@@ -46,9 +45,12 @@ class AutoCoordinateFinder(AsyncWebsocketConsumer):
         # data = json.loads(text_data)
         print(text_data)
         if text_data == 'get_frame':
+            picam2 = Picamera2()
+            picam2.start()
             for i in 'amal':
                 await asyncio.sleep(.5)
-                await self.send(video_stream())
+                await self.send(video_stream(picam2))
+            picam2.stop()
 
 class ManualCoordinateFinder(AsyncWebsocketConsumer):
     async def connect(self):
