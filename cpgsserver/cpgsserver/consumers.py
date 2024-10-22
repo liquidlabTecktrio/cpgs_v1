@@ -39,6 +39,16 @@ class AutoCoordinateFinder(AsyncWebsocketConsumer):
     async def connect(self):
         # picam2.stop()
         self.picam2 = Picamera2()
+        # Define the camera configuration
+        camera_config = {
+            "format": "YUV420",             # Choose your desired format
+            "resolution": (640, 480),       # Set the resolution
+            "framerate": 30,                # Set the framerate
+            "pixel_format": "RGB888"        # Set the pixel format if needed
+        }
+
+        # Set the camera configuration
+        self.picam2.configure(camera_config)
         self.picam2.start()
         await self.accept()
 
