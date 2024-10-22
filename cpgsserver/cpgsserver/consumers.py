@@ -13,9 +13,10 @@ from django.http import StreamingHttpResponse
 from django.shortcuts import render
 from picamera2 import Picamera2
 
+picam2 = Picamera2()
+picam2.start()
 
-
-def video_stream(picam2):
+def video_stream():
    
     # Open the camera
     # camera = cv2.VideoCapture('/dev/video1')  # Change to the appropriate camera index if needed
@@ -38,8 +39,6 @@ class AutoCoordinateFinder(AsyncWebsocketConsumer):
     
     async def connect(self):
         # picam2.stop()
-        self.picam2 = Picamera2()
-        self.picam2.start()
         await self.accept()
 
     async def disconnect(self, close_code):
@@ -52,7 +51,7 @@ class AutoCoordinateFinder(AsyncWebsocketConsumer):
             
             while True:
                 await asyncio.sleep(.2)
-                await self.send(video_stream(self.picam2))
+                await self.send(video_stream())
             
 
 class ManualCoordinateFinder(AsyncWebsocketConsumer):
