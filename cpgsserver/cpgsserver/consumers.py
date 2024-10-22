@@ -52,7 +52,7 @@ class AutoCoordinateFinder(AsyncWebsocketConsumer):
             
             while True:
                 await asyncio.sleep(.2)
-                await self.send(video_stream(picam2))
+                await self.send(video_stream(self.picam2))
             
 
 class ManualCoordinateFinder(AsyncWebsocketConsumer):
