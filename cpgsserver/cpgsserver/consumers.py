@@ -19,17 +19,17 @@ def video_stream():
     picam2.start()
     # Open the camera
     # camera = cv2.VideoCapture('/dev/video1')  # Change to the appropriate camera index if needed
-    while True:
-        # Read frame from the camera
-        frame = picam2.capture_array()
-        # if not success:
-        #     break
-        # Encode the frame as JPEG
-        ret, buffer = cv2.imencode('.jpg', frame)
-        frame = buffer.tobytes()
-        # Yield the frame
-        yield (b'--frame\r\n'
-               b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n')
+
+    # Read frame from the camera
+    frame = picam2.capture_array()
+    # if not success:
+    #     break
+    # Encode the frame as JPEG
+    ret, buffer = cv2.imencode('.jpg', frame)
+    frame = buffer.tobytes()
+    # Yield the frame
+    return (b'--frame\r\n'
+            b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n')
 
 
 class AutoCoordinateFinder(AsyncWebsocketConsumer):
