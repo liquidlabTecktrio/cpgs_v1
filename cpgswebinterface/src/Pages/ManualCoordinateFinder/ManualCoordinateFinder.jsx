@@ -9,7 +9,7 @@ export default function ManualCoordinateFinder() {
   })
   return (
     <div>
-      <Labelwithdescription label="Auto Coordinate Finder" description="Here our Auto finder feature will help you to find the space coordinates in fast." />
+      <Labelwithdescription label="Manual Coordinate Finder" description="Here our Auto finder feature will help you to find the space coordinates in fast." />
       <div >
         <img id="video" alt="Video Stream" />
       </div>
