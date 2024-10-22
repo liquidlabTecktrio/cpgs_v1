@@ -10,7 +10,7 @@ export default function AutoCoordinateFinder() {
     return (
         <div>
             <Labelwithdescription label="Auto Coordinate Finder" description="Here our Auto finder feature will help you to find the space coordinates in fast." />
-            <div className='w-full bg-black h-60'>
+            <div >
             <img id="video" alt="Video Stream" />
             </div>
             <div className='flex justify-end py-10'>
