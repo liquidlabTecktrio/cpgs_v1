@@ -47,10 +47,10 @@ class AutoCoordinateFinder(AsyncWebsocketConsumer):
         if text_data == 'get_frame':
             picam2 = Picamera2()
             picam2.start()
-            for i in 'amal':
-                await asyncio.sleep(.5)
+            while True:
+                # await asyncio.sleep()
                 await self.send(video_stream(picam2))
-            picam2.stop()
+            # picam2.stop()
 
 class ManualCoordinateFinder(AsyncWebsocketConsumer):
     async def connect(self):
