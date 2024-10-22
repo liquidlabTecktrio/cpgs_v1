@@ -26,9 +26,7 @@ export const GET_AUTO_CALIBRATE_FRAME_REQUEST = ()=>{
     }).catch((error)=>{
 
     })
-   
 }
-  
 
 function ESTABLISH_WEBSOCKET_CONNECTION(endpoint) {
     let SERVER_WEBSOCKET_URL = `ws://127.0.0.1:8001/${endpoint}`
