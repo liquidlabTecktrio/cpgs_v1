@@ -40,11 +40,13 @@ class AutoCoordinateFinder(AsyncWebsocketConsumer):
         # picam2.stop()
         self.picam2 = Picamera2()
         # Define the camera configuration
+      # Define the camera configuration
         camera_config = {
-            "format": "YUV420",             # Choose your desired format
-            "resolution": (640, 480),       # Set the resolution
-            "framerate": 30,                # Set the framerate
-            "pixel_format": "RGB888"        # Set the pixel format if needed
+            "format": "YUV420",                # Format of the captured frames
+            "resolution": (640, 480),          # Set the resolution
+            "framerate": 30,                   # Set the framerate
+            "pixel_format": "RGB888",          # Set the pixel format if needed
+            "colour_space": "RGB"              # Add the colour_space key
         }
 
         # Set the camera configuration
