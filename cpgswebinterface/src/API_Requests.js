@@ -22,6 +22,8 @@ export const GET_AUTO_CALIBRATE_FRAME_REQUEST = ()=>{
       socket.onmessage = function (data) {
         // const data = JSON.parse(event.data);
           console.log('Message from server:', data);
+          const imgElement = document.getElementById('video');
+          imgElement.src = data.data;
     };
     }).catch((error)=>{
 
