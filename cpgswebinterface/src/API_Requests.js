@@ -16,8 +16,22 @@ export const LOGIN_API = (username , password)=>{
 }
 
 export const GET_AUTO_CALIBRATE_FRAME_REQUEST = ()=>{
+  // console.log("intializing socket connections")
+  ESTABLISH_WEBSOCKET_CONNECTION('auto_coordinate_finder').then((socket)=>{
+    socket.send("get_frame")
+    socket.onmessage = function (data) {
+      // const data = JSON.parse(event.data);
+        console.log('Message from server:', data);
+        const imgElement = document.getElementById('video');
+        imgElement.src = data.data;
+  };
+  }).catch((error)=>{
+
+  })
+}
+export const GET_MANUAL_CALIBRATE_FRAME_REQUEST = ()=>{
     // console.log("intializing socket connections")
-    ESTABLISH_WEBSOCKET_CONNECTION('auto_coordinate_finder').then((socket)=>{
+    ESTABLISH_WEBSOCKET_CONNECTION('manual_coordinate_finder').then((socket)=>{
       socket.send("get_frame")
       socket.onmessage = function (data) {
         // const data = JSON.parse(event.data);

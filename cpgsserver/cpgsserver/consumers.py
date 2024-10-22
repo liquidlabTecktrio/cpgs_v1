@@ -55,19 +55,22 @@ class AutoCoordinateFinder(AsyncWebsocketConsumer):
             
 
 class ManualCoordinateFinder(AsyncWebsocketConsumer):
+   
     async def connect(self):
+        # picam2.stop()
         await self.accept()
 
     async def disconnect(self, close_code):
         pass
 
     async def receive(self, text_data):
-        data = json.loads(text_data)
-        message = data['message']
-        
-        await self.send(text_data=json.dumps({
-            'message': message
-        }))
+        # data = json.loads(text_data)
+        print(text_data)
+        if text_data == 'get_frame':
+            
+            while True:
+                await asyncio.sleep(.1)
+                await self.send(video_stream())
 
 class LiveStream(AsyncWebsocketConsumer):
     async def connect(self):
