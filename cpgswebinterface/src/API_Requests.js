@@ -29,7 +29,7 @@ export const GET_AUTO_CALIBRATE_FRAME_REQUEST = ()=>{
 }
 
 function ESTABLISH_WEBSOCKET_CONNECTION(endpoint) {
-    let SERVER_WEBSOCKET_URL = `ws://127.0.0.1:8000/${endpoint}`
+    let SERVER_WEBSOCKET_URL = `ws://cpgs.local:8000/${endpoint}`
     //     Here are the possible values for readyState:
 
     // 0: CONNECTING – The connection is not yet open.
