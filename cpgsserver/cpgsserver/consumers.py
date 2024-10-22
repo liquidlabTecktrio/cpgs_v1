@@ -1,6 +1,7 @@
 # your_app/consumers.py
 
 import asyncio
+import base64
 import json
 import time
 from channels.generic.websocket import AsyncWebsocketConsumer
@@ -26,10 +27,11 @@ def video_stream():
     #     break
     # Encode the frame as JPEG
     ret, buffer = cv2.imencode('.jpg', frame)
-    frame = buffer.tobytes()
-    # Yield the frame
-    return (b'--frame\r\n'
-            b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n')
+    frame_bytes = buffer.tobytes()
+    encoded_frame = base64.b64encode(frame_bytes).decode('utf-8')
+
+        # Yield the base64 string
+    return  f"data:image/jpeg;base64,{encoded_frame}"
 
 
 class AutoCoordinateFinder(AsyncWebsocketConsumer):
