@@ -42,13 +42,16 @@ class AutoCoordinateFinder(AsyncWebsocketConsumer):
         # Define the camera configuration
       # Define the camera configuration
        # Define the camera configuration
+        # Define the camera configuration
         camera_config = {
-            "format": "YUV420",               # Format of the captured frames
-            "resolution": (640, 480),         # Set the resolution
-            "framerate": 30,                  # Set the framerate
-            "pixel_format": "RGB888",         # Set the pixel format
-            "colour_space": "RGB",             # Specify the colour space
-            "transform": "rotate-0"           # Specify the transformation (e.g., rotate, flip)
+            "main": {
+                "format": "YUV420",               # Format of the captured frames
+                "resolution": (640, 480),         # Set the resolution
+                "framerate": 30,                  # Set the framerate
+                "pixel_format": "RGB888",         # Set the pixel format
+                "colour_space": "RGB",            # Specify the colour space
+                "transform": "rotate-0"           # Specify the transformation
+            }
         }
 
 
