@@ -29,6 +29,7 @@ def video_stream():
     ret, buffer = cv2.imencode('.jpg', frame)
     frame_bytes = buffer.tobytes()
     encoded_frame = base64.b64encode(frame_bytes).decode('utf-8')
+    picam2.stop()
 
         # Yield the base64 string
     return  f"data:image/jpeg;base64,{encoded_frame}"
