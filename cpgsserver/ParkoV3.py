@@ -26,7 +26,7 @@ class ParkoV3:
         # default mode
         self.picam2 = Picamera2()
         self.picam2.start()
-        self.mode = 0
+        self.mode = 2
         # Change this to False on production to reduce processing power
         self.Debug = False
         # Getting the Device Ip and configring the port for Socket connection
